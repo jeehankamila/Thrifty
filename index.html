@@ -1,0 +1,521 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thrifty</title>
+
+    <!-- import font => outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- import icon -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!-- external css -->
+    <link rel="stylesheet" href="style.css" />
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar">
+      <div class="navbar-content">
+        <div class="logo-search-container">
+          <!-- Logo -->
+          <div class="logo-container" onclick="goToHome()">
+            <div class="logo-icon">
+              <svg
+                preserveAspectRatio="none"
+                width="100%"
+                height="100%"
+                overflow="visible"
+                viewBox="0 0 79 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="Vector">
+                  <path
+                    d="M5.97059 0.277409L11.9412 6.248L5.97059 12.2186L0 6.248L5.97059 0.277409Z"
+                    fill="#57B660"
+                  />
+                  <path
+                    d="M9.91178 0.277409L15.8824 6.248L9.91178 12.2186L3.94119 6.248L9.91178 0.277409Z"
+                    fill="#57B660"
+                  />
+                  <path
+                    d="M34.7364 2.844H30.7044V13.248H28.2024V2.844H24.1704V0.486H34.7364V2.844Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M38.3016 8.046V13.248H35.9076V0.216H38.3016V5.13C38.8776 4.446 39.8496 4.158 40.6956 4.158C42.9456 4.158 43.9896 5.724 43.9896 7.668V13.248H41.5956V8.082C41.5956 7.092 41.1096 6.318 39.9576 6.318C38.9496 6.318 38.3556 7.074 38.3016 8.046Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M51.3694 4.356V6.768C51.0994 6.714 50.8654 6.696 50.6494 6.696C49.4254 6.696 48.3634 7.29 48.3634 9.198V13.248H45.9694V4.392H48.2914V5.706C48.8314 4.536 50.0554 4.32 50.8114 4.32C51.0094 4.32 51.1894 4.338 51.3694 4.356Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M54.9973 13.248H52.6033V4.392H54.9973V13.248ZM52.3153 1.494C52.3153 0.666 52.9813 0 53.7913 0C54.6193 0 55.2673 0.666 55.2673 1.494C55.2673 2.286 54.6193 2.952 53.7913 2.952C52.9813 2.952 52.3153 2.286 52.3153 1.494Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M61.2144 2.196C60.6744 2.196 59.9724 2.43 59.9724 3.42V4.392H61.9704V6.444H59.9724V13.248H57.5604V6.444H56.0844V4.392H57.5604V3.384C57.5604 1.386 58.8204 0.090001 60.7824 0.090001C61.2864 0.090001 61.7724 0.180001 61.9704 0.270001V2.286C61.8444 2.25 61.6104 2.196 61.2144 2.196Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M66.4151 1.746V4.392H68.1971V6.516H66.4151V10.224C66.4151 10.998 66.7751 11.25 67.4591 11.25C67.7471 11.25 68.0711 11.214 68.1971 11.178V13.158C67.9811 13.248 67.5491 13.374 66.8471 13.374C65.1191 13.374 64.0391 12.348 64.0391 10.638V6.516H62.4371V4.392H62.8871C63.8231 4.392 64.2551 3.78 64.2551 2.988V1.746H66.4151Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M73.034 16.74H70.496L72.584 12.132L68.822 4.392H71.504L73.862 9.576L76.04 4.392H78.596L73.034 16.74Z"
+                    fill="white"
+                  />
+                </g>
+              </svg>
+            </div>
+            <span class="logo-text">Thrifty</span>
+          </div>
+          <div class="search-container">
+            <input
+              type="text"
+              class="search-bar"
+              placeholder="Cari produk bekas berkualitas..."
+            />
+            <i class="ri-search-line search-icon"></i>
+          </div>
+        </div>
+
+        <button class="cart-btn">
+          <i class="ri-shopping-cart-line"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- home page -->
+    <div id="home-page" class="page active">
+      <!-- category bar -->
+      <div class="category-bar">
+        <a href="#" class="category-item" onclick="return false;">
+          <i class="ri-home-smile-line"></i>
+          Semua Kategori
+        </a>
+        <a href="#" class="category-item" onclick="return false;">
+          <i class="ri-t-shirt-line"></i>
+          Fashion
+        </a>
+        <a href="#" class="category-item" onclick="return false;">
+          <i class="ri-smartphone-line"></i>
+          Elektronik
+        </a>
+        <a href="#" class="category-item" onclick="return false;">
+          <i class="ri-book-open-line"></i>
+          Buku
+        </a>
+        <a href="#" class="category-item" onclick="return false;">
+          <i class="ri-basketball-line"></i>
+          Olahraga
+        </a>
+        <a href="#" class="category-item" onclick="return false;">
+          <i class="ri-brush-line"></i>
+          Hobi & Koleksi
+        </a>
+        <a href="#" class="category-item" onclick="return false;">
+          <i class="ri-gamepad-line"></i>
+          Gaming
+        </a>
+      </div>
+
+      <!-- hero section -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <h1>Belanja Hemat, Ramah Lingkungan!</h1>
+          <p>
+            Temukan barang bekas berkualitas dengan harga terbaik. Hemat hingga
+            70%!
+          </p>
+          <button class="hero-btn">Mulai Belanja</button>
+        </div>
+      </section>
+
+      <!-- kategori populer -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">Kategori Populer</h2>
+        </div>
+        <div class="categories-grid">
+          <div class="category-card">
+            <i class="ri-t-shirt-line"></i>
+            <h3>Fashion</h3>
+          </div>
+          <div class="category-card">
+            <i class="ri-smartphone-line"></i>
+            <h3>Elektronik</h3>
+          </div>
+          <div class="category-card">
+            <i class="ri-book-open-line"></i>
+            <h3>Buku</h3>
+          </div>
+          <div class="category-card">
+            <i class="ri-basketball-line"></i>
+            <h3>Olahraga</h3>
+          </div>
+          <div class="category-card">
+            <i class="ri-gamepad-line"></i>
+            <h3>Gaming</h3>
+          </div>
+          <div class="category-card">
+            <i class="ri-home-line"></i>
+            <h3>Rumah Tangga</h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- rekomendasi product -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">Rekomendasi Untuk Anda</h2>
+          <a href="#" class="view-all" onclick="return false;">
+            Lihat Semua
+            <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+        <div class="product-grid">
+          <div class="product-card">
+            <div
+              class="product-image"
+              style="
+                background-image: url('https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop');
+                background-size: cover;
+                background-position: center;
+              "
+            ></div>
+            <div class="product-info">
+              <h3 class="product-title">MacBook Pro 2017 13" - i5 8GB</h3>
+              <p class="product-condition">Kondisi: Baik</p>
+              <div>
+                <span class="product-price">Rp 7.500.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div
+              class="product-image"
+              style="
+                background-image: url('https://images.pexels.com/photos/51383/photo-camera-subject-photographer-51383.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop');
+                background-size: cover;
+                background-position: center;
+              "
+            ></div>
+            <div class="product-info">
+              <h3 class="product-title">Kamera + Lensa</h3>
+              <p class="product-condition">Kondisi: Sangat Baik</p>
+              <div>
+                <span class="product-price">Rp 5.200.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div
+              class="product-image"
+              style="
+                background-image: url('https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop');
+                background-size: cover;
+                background-position: center;
+              "
+            ></div>
+            <div class="product-info">
+              <h3 class="product-title">Sepeda Gunung MTB 26" Polygon</h3>
+              <p class="product-condition">Kondisi: Baik</p>
+              <div>
+                <span class="product-price">Rp 2.800.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div
+              class="product-image"
+              style="
+                background-image: url('https://images.pexels.com/photos/277390/pexels-photo-277390.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop');
+                background-size: cover;
+                background-position: center;
+              "
+            ></div>
+            <div class="product-info">
+              <h3 class="product-title">Watch</h3>
+              <p class="product-condition">Kondisi: Sangat Baik</p>
+              <div>
+                <span class="product-price">Rp 3.500.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div
+              class="product-image"
+              style="
+                background-image: url('https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop');
+                background-size: cover;
+                background-position: center;
+              "
+            ></div>
+            <div class="product-info">
+              <h3 class="product-title">Jaket</h3>
+              <p class="product-condition">Kondisi: Baik</p>
+              <div>
+                <span class="product-price">Rp 150.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div
+              class="product-image"
+              style="
+                background-image: url('https://images.pexels.com/photos/1772123/pexels-photo-1772123.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop');
+                background-size: cover;
+                background-position: center;
+              "
+            ></div>
+            <div class="product-info">
+              <h3 class="product-title">Keyboard</h3>
+              <p class="product-condition">Kondisi: Sangat Baik</p>
+              <div>
+                <span class="product-price">Rp 650.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div
+              class="product-image"
+              style="
+                background-image: url('https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop');
+                background-size: cover;
+                background-position: center;
+              "
+            ></div>
+            <div class="product-info">
+              <h3 class="product-title">Headset Bluetooth</h3>
+              <p class="product-condition">Kondisi: Baik</p>
+              <div>
+                <span class="product-price">Rp 850.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div
+              class="product-image"
+              style="
+                background-image: url('https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop');
+                background-size: cover;
+                background-position: center;
+              "
+            ></div>
+            <div class="product-info">
+              <h3 class="product-title">Meja Minimalis</h3>
+              <p class="product-condition">Kondisi: Baik</p>
+              <div>
+                <span class="product-price">Rp 1.200.000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- product detail page -->
+    <div id="product-detail-page" class="page">
+      <div class="py-8 px-6 md:px-16 lg:px-32 product-detail">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 items-start product-detail-container">
+          <div class="bg-[#1a1a1a] rounded-xl aspect-square flex items-center justify-center text-[128px] text-[#999999] product-detail-image">
+            <i id="detail-icon" class="ri-macbook-line"></i>
+          </div>
+          <div class="">
+            <h1 id="detail-title" class="text-3xl lg:text-4xl font-semibold mb-4 text-white">
+              Product Title
+            </h1>
+            <div id="detail-price" class="text-4xl lg:text-5xl font-bold text-[#57b660] mb-6">
+              Rp 0
+            </div>
+            <div id="detail-condition" class="text-base text-[#999999] mb-6">
+              Kondisi: Baik
+            </div>
+            <div class="text-white/90 leading-relaxed mb-8">
+              <h2 class="text-xl font-semibold mb-2 text-white">Deskripsi</h2>
+              <p id="detail-description">
+                Produk berkualitas dengan kondisi sangat baik. Sudah digunakan
+                namun masih berfungsi dengan sempurna. Cocok untuk Anda yang
+                mencari barang bekas berkualitas dengan harga terjangkau.
+              </p>
+            </div>
+            <div>
+              <button class="w-full sm:w-auto py-3 px-6 rounded-lg text-base font-semibold bg-[#57b660] text-black hover:bg-[#4da557] transition-colors duration-300">
+                Beli Sekarang
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- contact page -->
+    <div id="contact-page" class="page">
+      <div class="contact-container">
+        <div class="contact-header">
+          <h1>Hubungi Kami</h1>
+          <p>
+            Ada pertanyaan? Kami siap membantu Anda. Isi formulir di bawah ini
+            atau hubungi kami langsung.
+          </p>
+        </div>
+
+        <form class="contact-form" id="contact-form">
+          <div class="form-group">
+            <label for="name">Nama Lengkap</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Masukkan nama lengkap Anda"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Masukkan email Anda"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Nomor Telepon</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="Masukkan nomor telepon Anda"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subjek</label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              placeholder="Masukkan subjek"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Pesan</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Tulis pesan Anda di sini..."
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Kirim Pesan</button>
+        </form>
+
+        <div class="contact-info">
+          <div class="info-card">
+            <i class="ri-mail-line"></i>
+            <h3>Email</h3>
+            <p>support@thrifty.id</p>
+          </div>
+          <div class="info-card">
+            <i class="ri-phone-line"></i>
+            <h3>Telepon</h3>
+            <p>+62 8958-0442-7555</p>
+          </div>
+          <div class="info-card">
+            <i class="ri-map-pin-line"></i>
+            <h3>Alamat</h3>
+            <p>Surabaya, Indonesia</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Tentang Thrifty</h3>
+          <ul>
+            <li><a href="#" onclick="goToHome()">Beranda</a></li>
+            <li><a href="#" onclick="return false;">Blog</a></li>
+            <li><a href="#" onclick="return false;">Karir</a></li>
+            <li><a href="#" onclick="return false;">Press</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Bantuan</h3>
+          <ul>
+            <li><a href="#" onclick="return false;">Pusat Bantuan</a></li>
+            <li><a href="#" onclick="goToContact()">Hubungi Kami</a></li>
+            <li><a href="#" onclick="return false;">Cara Berbelanja</a></li>
+            <li><a href="#" onclick="return false;">Kebijakan Privasi</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Kategori</h3>
+          <ul>
+            <li><a href="#" onclick="return false;">Fashion</a></li>
+            <li><a href="#" onclick="return false;">Elektronik</a></li>
+            <li><a href="#" onclick="return false;">Buku</a></li>
+            <li><a href="#" onclick="return false;">Furniture</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Ikuti Kami</h3>
+          <ul>
+            <li>
+              <a href="#" onclick="return false;"
+                ><i class="ri-instagram-line"></i> Instagram</a
+              >
+            </li>
+            <li>
+              <a href="#" onclick="return false;"
+                ><i class="ri-facebook-circle-line"></i> Facebook</a
+              >
+            </li>
+            <li>
+              <a href="#" onclick="return false;"
+                ><i class="ri-twitter-line"></i> Twitter</a
+              >
+            </li>
+            <li>
+              <a href="#" onclick="return false;"
+                ><i class="ri-youtube-line"></i> YouTube</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Thrifty. Belanja hemat, ramah lingkungan.</p>
+      </div>
+    </footer>
+
+    <!-- external js -->
+    <script src="script.js"></script>
+  </body>
+</html>
